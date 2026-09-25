@@ -1,3 +1,13 @@
+## Installation
+
+Import this repo's `CLAUDE.md` into your user-scope `~/.claude/CLAUDE.md` (run from the repo root):
+
+```bash
+echo "@$PWD/CLAUDE.md" >> ~/.claude/CLAUDE.md
+```
+
+To uninstall, delete that line.
+
 ## Plugins
 
 ### Postman
