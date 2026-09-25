@@ -1,0 +1,1 @@
+Do not run any installation commands yourself. Give me command, so I could run myself.
