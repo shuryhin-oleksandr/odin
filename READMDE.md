@@ -1,32 +1,40 @@
 ## Installation
 
-Run all commands from the repo root.
+Scripts can be run from any directory.
 
-### CLAUDE.md
-
-Import odin `CLAUDE.md` into your user-scope `~/.claude/CLAUDE.md`:
+### Install
 
 ```bash
-echo "@$PWD/CLAUDE.md" >> ~/.claude/CLAUDE.md
+./bin/install.sh
 ```
 
-To uninstall, delete that line.
+- Links odin `CLAUDE.md` into your user-scope `~/.claude/CLAUDE.md` by adding an `@<repo>/CLAUDE.md` import line (skipped if already present).
+- Symlinks each skill into your user-scope `~/.claude/skills/`, so it is available in every project and stays in sync with this repo.
 
-### Skills
+Re-run it after adding new skills.
 
-Symlink each skill into your user-scope `~/.claude/skills/`, so it is available in every project and stays in sync with this repo:
+### Uninstall
 
 ```bash
-mkdir -p ~/.claude/skills
-for skill in "$PWD"/skills/*/; do ln -sfn "${skill%/}" ~/.claude/skills/; done
+./bin/uninstall.sh
 ```
 
-To uninstall a skill, delete its symlink, e.g. `rm ~/.claude/skills/generate-engineering-insights-skill`.
+- Removes the `CLAUDE.md` import line, keeping the rest of `~/.claude/CLAUDE.md` intact.
+- Removes broken symlinks in `~/.claude/skills/`.
+- Removes skill symlinks pointing into this repo. Other skills are left untouched.
 
-Available skills:
+### Clean symlinks
+
+```bash
+./bin/clean_symlinks.sh
+```
+
+Removes broken skill symlinks pointing into this repo, e.g. after a skill was deleted or renamed.
+
+### Available skills
 
 - `/generate-engineering-insights-skill`: generates the `engineering-insights` skill for the current project. Run it from the target project.
 
-### Plugins
+## Plugins
 
 Plugins installation instructions are [here](PLUGINS.md).
