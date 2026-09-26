@@ -5,11 +5,12 @@ set -euo pipefail
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 CLAUDE_DIR="$HOME/.claude"
 IMPORT_LINE="@$REPO_DIR/CLAUDE.md"
+COMMENT_LINE="<!-- Managed by odin bin/install.sh, do not edit or delete by hand. Run bin/uninstall.sh to remove. -->"
 
 # CLAUDE.md
 if [ -f "$CLAUDE_DIR/CLAUDE.md" ] && grep -qxF "$IMPORT_LINE" "$CLAUDE_DIR/CLAUDE.md"; then
   tmp="$(mktemp)"
-  grep -vxF "$IMPORT_LINE" "$CLAUDE_DIR/CLAUDE.md" > "$tmp" || true
+  grep -vxF -e "$IMPORT_LINE" -e "$COMMENT_LINE" "$CLAUDE_DIR/CLAUDE.md" > "$tmp" || true
   cat "$tmp" > "$CLAUDE_DIR/CLAUDE.md"
   rm "$tmp"
   echo "CLAUDE.md unlinked - $IMPORT_LINE"
