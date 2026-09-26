@@ -186,4 +186,3 @@ When reviewing or writing frontend code, flag:
 - [references/nextjs-app-router.md](references/nextjs-app-router.md) — Next.js App Router: `app/` role, server/client boundary, data access, Server Actions, Route Handlers, auth placement, route folders.
 - [references/patterns.md](references/patterns.md) — worked code for the tricky cases.
 - [references/enforcement.md](references/enforcement.md) — ESLint rules that enforce the dependency direction.
-- Sources behind every rule: [sources.md](sources.md).

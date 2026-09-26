@@ -1,6 +1,6 @@
-# frontend-ui-architecture
+# frontend-ui-architecture — links
 
-**Version:** 1.0.0
+**Version:** 1.0.0 (source of truth: `metadata.version` in SKILL.md)
 
 Skill for Claude Code: frontend UI architecture and code organization for React and Next.js (App Router). It answers "where does this code go and how is it split": components, hooks, constants, utils/helpers, types, API calls, state, business logic, import boundaries, server vs client placement.
 
@@ -10,14 +10,22 @@ The skill is model-invoked: Claude loads it automatically when deciding where co
 
 ## Files
 
+Skill (installed): [`skills/frontend-ui-architecture/`](../../skills/frontend-ui-architecture/)
+
 | File | Purpose |
 |---|---|
-| [SKILL.md](SKILL.md) | Core rules for any React project: default structure, dependency direction, colocation, placement table, component splitting, hooks vs utils vs domain, state, imports, review checklist |
-| [references/nextjs-app-router.md](references/nextjs-app-router.md) | Next.js App Router: role of `app/`, server/client boundary, data-access models, Server Actions, Route Handlers, auth placement, route folders |
-| [references/patterns.md](references/patterns.md) | Worked code for tricky placement cases |
-| [references/enforcement.md](references/enforcement.md) | ESLint rules to enforce the dependency direction |
-| [frontend-ui-architecture-research.md](frontend-ui-architecture-research.md) | Full research notes (UA): takeaways per source, contradictions, corner cases |
+| [SKILL.md](../../skills/frontend-ui-architecture/SKILL.md) | Core rules for any React project: default structure, dependency direction, colocation, placement table, component splitting, hooks vs utils vs domain, state, imports, review checklist |
+| [references/nextjs-app-router.md](../../skills/frontend-ui-architecture/references/nextjs-app-router.md) | Next.js App Router: role of `app/`, server/client boundary, data-access models, Server Actions, Route Handlers, auth placement, route folders |
+| [references/patterns.md](../../skills/frontend-ui-architecture/references/patterns.md) | Worked code for tricky placement cases |
+| [references/enforcement.md](../../skills/frontend-ui-architecture/references/enforcement.md) | ESLint rules to enforce the dependency direction |
+
+Skill sources (this folder, not installed):
+
+| File | Purpose |
+|---|---|
 | [prompt.md](prompt.md) | Original requests that produced this skill |
+| [notes.md](notes.md) | Takeaways per source (UA), contradictions, corner cases |
+| [links.md](links.md) | This file: all links, changelog |
 
 ## Changelog
 
@@ -25,7 +33,7 @@ The skill is model-invoked: Claude loads it automatically when deciding where co
 
 ## Sources
 
-All sources used to build the skill. Detailed takeaways for each are in [frontend-ui-architecture-research.md](frontend-ui-architecture-research.md).
+All sources used to build the skill. Detailed takeaways for each are in [notes.md](notes.md).
 
 ### Official documentation — React
 
