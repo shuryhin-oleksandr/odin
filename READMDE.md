@@ -38,8 +38,7 @@ Removes broken skill symlinks pointing into this repo, e.g. after a skill was de
 
 ### Available skills
 
-- `/generate-engineering-insights-skill`: generates the `engineering-insights` skill for the current project. Run it from the target project.
-- `frontend-ui-architecture`: React / Next.js App Router architecture and code organization (where components, hooks, constants, utils and business logic live). Loaded automatically when relevant; sources it was generated from: [skill-sources/frontend-ui-architecture](skill-sources/frontend-ui-architecture/links.md).
+None yet.
 
 ## Plugins
 
