@@ -1,13 +1,3 @@
-## Installation
-
-Import this repo's `CLAUDE.md` into your user-scope `~/.claude/CLAUDE.md` (run from the repo root):
-
-```bash
-echo "@$PWD/CLAUDE.md" >> ~/.claude/CLAUDE.md
-```
-
-To uninstall, delete that line.
-
 ## Plugins
 
 ### Postman
@@ -17,17 +7,6 @@ Official Claude Postman integration, searchable via the Marketplace plugin.
 ```bash
 claude plugin install postman@claude-plugins-official
 ```
-
-### Postgres
-
-PostgreSQL database integration — example from the Claude [docs](https://code.claude.com/docs/en/mcp#example-query-your-postgresql-database).
-
-```bash
-claude mcp add --transport stdio db -- npx -y @bytebase/dbhub \
---dsn "postgresql://user:pass@host:5432/db_name"
-```
-
-Executed per-project, so MCP works with specific project DB.
 
 ### Sentry
 
@@ -68,3 +47,15 @@ claude plugin install pyright-lsp@claude-plugins-official
 ```bash
 claude plugin install typescript-lsp@claude-plugins-official
 ```
+
+## MCP
+### Postgres
+
+PostgreSQL database integration — example from the Claude [docs](https://code.claude.com/docs/en/mcp#example-query-your-postgresql-database).
+
+```bash
+claude mcp add --transport stdio db -- npx -y @bytebase/dbhub \
+--dsn "postgresql://user:pass@host:5432/db_name"
+```
+
+Executed per-project, so MCP works with specific project DB.
