@@ -25,6 +25,7 @@ fi
 
 # Skills
 for skill in "$REPO_DIR"/skills/*/; do
+  [ -d "$skill" ] || continue # no skills: unmatched glob stays literal
   skill="${skill%/}"
   ln -sfn "$skill" "$CLAUDE_DIR/skills/"
   echo "skill linked - $(basename "$skill")"
