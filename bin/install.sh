@@ -32,13 +32,13 @@ for skill in "$REPO_DIR"/skills/*/; do
   name="$(basename "$skill")"
   link="$CLAUDE_DIR/skills/$name"
   if [ -L "$link" ] && [ "$(readlink "$link")" = "$skill" ]; then
-    echo "  $name - linked already"
+    echo "  $name - linked"
   elif [ -L "$link" ]; then
     echo "  $name - clash, not linked (link points to $(readlink "$link"))"
   elif [ -e "$link" ]; then
     echo "  $name - clash, not linked ($link exists and is not a link)"
   else
     ln -s "$skill" "$link"
-    echo "  $name - linked"
+    echo "  $name - installed"
   fi
 done

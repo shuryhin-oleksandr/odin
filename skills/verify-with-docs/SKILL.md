@@ -1,6 +1,6 @@
 ---
 name: verify-with-docs
-description: Verify library/API claims against current docs with citations. Use only when the prompt contains the uppercase keyword "VRF".
+description: Verify library/API claims against current docs with citations. Use only when the prompt contains the uppercase keyword "API".
 ---
 
 Before stating anything about a library, check it in the official docs for the version in the project's lockfile.
