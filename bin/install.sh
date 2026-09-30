@@ -24,9 +24,21 @@ else
 fi
 
 # Skills
+echo
+echo "SKILLS"
 for skill in "$REPO_DIR"/skills/*/; do
   [ -d "$skill" ] || continue # no skills: unmatched glob stays literal
   skill="${skill%/}"
-  ln -sfn "$skill" "$CLAUDE_DIR/skills/"
-  echo "skill linked - $(basename "$skill")"
+  name="$(basename "$skill")"
+  link="$CLAUDE_DIR/skills/$name"
+  if [ -L "$link" ] && [ "$(readlink "$link")" = "$skill" ]; then
+    echo "  $name - linked already"
+  elif [ -L "$link" ]; then
+    echo "  $name - clash, not linked (link points to $(readlink "$link"))"
+  elif [ -e "$link" ]; then
+    echo "  $name - clash, not linked ($link exists and is not a link)"
+  else
+    ln -s "$skill" "$link"
+    echo "  $name - linked"
+  fi
 done
