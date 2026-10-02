@@ -39,6 +39,6 @@ for skill in "$REPO_DIR"/skills/*/; do
     echo "  $name - clash, not linked ($link exists and is not a link)"
   else
     ln -s "$skill" "$link"
-    echo "  $name - installed"
+    echo "  $name - ✨ installed"
   fi
 done
