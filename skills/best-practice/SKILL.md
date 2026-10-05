@@ -1,6 +1,6 @@
 ---
 name: best-practice
-description: Verify best-practice recommendations against authoritative, current sources with citations. Use only when the prompt contains the uppercase keyword "BP".
+description: Verify best-practice recommendations against authoritative, current sources with citations. Use when the prompt contains the uppercase keyword "BP", or when the user explicitly asks about best practices.
 ---
 
 Check your main recommendations against authoritative sources: official guides, standards (RFCs, W3C, OWASP), well-known style guides, or the tool's maintainers. Not Q&A sites or anonymous blog posts.
