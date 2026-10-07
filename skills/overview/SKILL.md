@@ -1,6 +1,6 @@
 ---
 name: overview
-description: Open the response with a sub-30-word overview of the answer plus its word count. Use whenever the prompt contains the uppercase keyword "OVW".
+description: Open the response with a sub-30-word overview of the answer plus its word count. Use when the prompt contains the uppercase keyword "OVW", or when the user explicitly asks for an overview.
 ---
 
 Before the full answer, write a one-line overview of it:
