@@ -59,3 +59,13 @@ claude mcp add --transport stdio db -- npx -y @bytebase/dbhub \
 ```
 
 Executed per-project, so MCP works with specific project DB.
+
+### Context7
+Supports both [auto installation](https://context7.com/docs/clients/claude-code#installation) and [plugin based](https://context7.com/docs/clients/claude-code#installation).
+
+```bash
+npx ctx7 setup
+
+# Uninstall
+npx ctx7 remove
+```
