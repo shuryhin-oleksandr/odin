@@ -17,6 +17,6 @@ For each library being compared, gather these from live sources. Never fill them
   - A deprecation notice or a pointer to a successor in the README.
   - The date of the last release and the last commit.
 
-Present the results as a table with one row per library and columns for Stars, Downloads (period), Last release, and Status (Active / Deprecated / Archived / Stale). Then list each source URL you fetched. If you can't get a number, write "n/a" rather than guessing.
+Present the results as a table with one row per library and columns for Stars, Downloads (period), Last release, and Status (Active / Deprecated / Archived / Stale). Sort rows by GitHub stars, most first; put "n/a" rows last. Then list each source URL you fetched. If you can't get a number, write "n/a" rather than guessing.
 
 Flag any library that's deprecated or archived, and name its successor if it has one. Finish with a short recommendation.
