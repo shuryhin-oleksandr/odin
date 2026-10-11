@@ -69,3 +69,8 @@ npx ctx7 setup
 # Uninstall
 npx ctx7 remove
 ```
+
+### [Linear](https://linear.app/docs/mcp#claude-code)
+```bash
+claude mcp add --transport http linear-server https://mcp.linear.app/mcp
+```
