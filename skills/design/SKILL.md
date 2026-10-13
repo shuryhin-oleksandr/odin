@@ -4,3 +4,4 @@ description: Give a design of which functions you will have on the backend for a
 ---
 
 Give me a design on which functions you will have on the backend for the task. Just write me function signatures.
+For each function, add a super concise description of what it is responsible for.
