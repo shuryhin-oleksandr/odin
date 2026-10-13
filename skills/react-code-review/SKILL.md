@@ -10,3 +10,5 @@ Code should work on different screen sizes.
 ## react-hook-form + Zod
 Forms should be done with react-hook-form and zod for validation.
 
+## swr or @tanstack/react-query
+Use swr or @tanstack/react-query for data fetching and caching.
