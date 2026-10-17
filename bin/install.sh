@@ -15,12 +15,13 @@ if [ -t 1 ]; then
 else
   INSTALLED_MARK="●"
 fi
+LINKED_MARK="○" # hollow dot in the normal text colour
 
 # Symlinks $1 to $2 unless $2 already exists. $3 is the label printed in the report, $4 the report line indent (default 2 spaces).
 link_path() {
   local source="$1" link="$2" label="$3" indent="${4:-  }"
   if [ -L "$link" ] && [ "$(readlink "$link")" = "$source" ]; then
-    echo "$indent$label - linked"
+    echo "${indent}${LINKED_MARK} $label - linked"
   elif [ -L "$link" ]; then
     echo "$indent$label - clash, not linked (link points to $(readlink "$link"))"
   elif [ -e "$link" ]; then
@@ -55,7 +56,7 @@ if grep -qxF "$IMPORT_LINE" "$CLAUDE_DIR/CLAUDE.md"; then
   awk -v c="$COMMENT_LINE" -v i="$IMPORT_LINE" '$0 == c { next } $0 == i { print c } { print }' "$CLAUDE_DIR/CLAUDE.md" > "$tmp"
   cat "$tmp" > "$CLAUDE_DIR/CLAUDE.md"
   rm "$tmp"
-  echo "  CLAUDE.md already linked - $IMPORT_LINE"
+  echo "  ${LINKED_MARK} CLAUDE.md already linked - $IMPORT_LINE"
 else
   printf '%s\n%s\n' "$COMMENT_LINE" "$IMPORT_LINE" >> "$CLAUDE_DIR/CLAUDE.md"
   echo "  CLAUDE.md linked - $IMPORT_LINE"
