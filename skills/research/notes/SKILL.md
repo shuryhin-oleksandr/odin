@@ -1,6 +1,6 @@
 ---
 name: notes
-description: Summarize a source (article, doc, talk) into a markdown notes file. Use when the user asks to take notes on, summarize, or distill a source for later.
+description: Summarize a source (article, doc, talk) into a markdown notes file, plus a file of action points. Use when the user asks to take notes on, summarize, or distill a source for later.
 ---
 
 <!-- TODO: refine instructions -->
@@ -10,9 +10,10 @@ description: Summarize a source (article, doc, talk) into a markdown notes file.
    - If the user named a path, use it.
    - Otherwise, default to an existing notes folder in the current project (e.g. `research/notes/`), or `notes/` at the project root if there is none.
 3. Call the AskUserQuestion tool to confirm the full file path. Do not write the file until the user answers.
-4. Write the summary to the confirmed path, using the template below.
+4. Write the summary to the confirmed path, using the notes template below.
+5. Write the action points next to it, at the same path with ` - Actions` before `.md`, using the actions template below.
 
-## Template
+## Notes template
 
 ```markdown
 # <Title> — <Author>
@@ -25,6 +26,15 @@ Source: <URL or path to the original>, published <date>.
 
 ## Conclusion
 - <Main takeaway>
+```
+
+## Actions template
+
+```markdown
+# Actions — <Title>, <Author>
+
+- When <condition>, I will <action>.
+- When <condition>, I will <action>.
 ```
 
 ## Rules
