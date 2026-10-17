@@ -9,18 +9,25 @@ CODEX_SKILLS_DIR="$HOME/.agents/skills"
 IMPORT_LINE="@$REPO_DIR/CLAUDE.md"
 COMMENT_LINE="<!-- Managed by odin bin/install.sh, do not edit or delete by hand. Run bin/uninstall.sh to remove. -->"
 
-# Symlinks $1 to $2 unless $2 already exists. $3 is the label printed in the report.
+# Green dot in a terminal, plain dot when output is piped or redirected
+if [ -t 1 ]; then
+  INSTALLED_MARK=$'\033[32m●\033[0m'
+else
+  INSTALLED_MARK="●"
+fi
+
+# Symlinks $1 to $2 unless $2 already exists. $3 is the label printed in the report, $4 the report line indent (default 2 spaces).
 link_path() {
-  local source="$1" link="$2" label="$3"
+  local source="$1" link="$2" label="$3" indent="${4:-  }"
   if [ -L "$link" ] && [ "$(readlink "$link")" = "$source" ]; then
-    echo "  $label - linked"
+    echo "$indent$label - linked"
   elif [ -L "$link" ]; then
-    echo "  $label - clash, not linked (link points to $(readlink "$link"))"
+    echo "$indent$label - clash, not linked (link points to $(readlink "$link"))"
   elif [ -e "$link" ]; then
-    echo "  $label - clash, not linked ($link exists and is not a link)"
+    echo "$indent$label - clash, not linked ($link exists and is not a link)"
   else
     ln -s "$source" "$link"
-    echo "  $label - ✨ installed"
+    echo "${indent}${INSTALLED_MARK} $label - installed"
   fi
 }
 
@@ -31,7 +38,7 @@ link_skills() {
   for skill in "$REPO_DIR"/skills/*/; do
     [ -d "$skill" ] || continue # no skills: unmatched glob stays literal
     skill="${skill%/}"
-    link_path "$skill" "$skills_dir/$(basename "$skill")" "$(basename "$skill")"
+    link_path "$skill" "$skills_dir/$(basename "$skill")" "$(basename "$skill")" "    "
   done
 }
 
