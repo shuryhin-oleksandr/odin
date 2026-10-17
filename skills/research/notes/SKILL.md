@@ -47,9 +47,9 @@ Source: <URL or path to the original>, published <date>.
 
 ## <Skills | Hooks | Agents | Tools | Rules (CLAUDE.md)>
 - <Concrete thing to build or configure, and what it does>.
-  <dl style="margin: 0 0 0.75em 0; opacity: 0.45"><dd>From §<source section>, §<another source section></dd></dl>
+  <dl style="margin: 0 0 0.75em 0; opacity: 0.45; filter: grayscale(1)"><dd><☝️ | ✏️ | ❔> From §<source section>, §<another source section></dd></dl>
 - <Concrete thing to build or configure, and what it does>.
-  <dl style="margin: 0 0 0.75em 0; opacity: 0.45"><dd>From §<source section></dd></dl>
+  <dl style="margin: 0 0 0.75em 0; opacity: 0.45; filter: grayscale(1)"><dd><☝️ | ✏️ | ❔> From §<source section></dd></dl>
 ```
 
 ## Rules
@@ -57,4 +57,8 @@ Source: <URL or path to the original>, published <date>.
 - Put the main thoughts under each header as short bullet points in your own words.
 - In `Harness.md`, include only the categories that have items, and make each item concrete enough to build.
 - In `Harness.md`, put each item's source on the line right after it, in the `<dl>` line exactly as in the template. Do not leave a blank line between items.
+- In `Harness.md`, start each source line with one emoji showing how closely the item follows the source:
+  - ☝️ — the author recommends it directly.
+  - ✏️ — the author's idea, but the mechanism (skill, hook, agent, rule) is your choice.
+  - ❔ — your extrapolation; the source does not say it.
 <!-- TODO: add more rules -->
