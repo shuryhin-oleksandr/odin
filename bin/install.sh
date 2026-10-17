@@ -32,14 +32,16 @@ link_path() {
 }
 
 # Symlinks every repo skill into the given skills directory.
+# A skill is any folder with a SKILL.md, at any depth, so skills can be grouped in subfolders (skills/research/notes).
+# Links stay flat (<skills_dir>/notes), because agents only look one level deep.
 link_skills() {
   local skills_dir="$1"
   mkdir -p "$skills_dir"
-  for skill in "$REPO_DIR"/skills/*/; do
-    [ -d "$skill" ] || continue # no skills: unmatched glob stays literal
-    skill="${skill%/}"
-    link_path "$skill" "$skills_dir/$(basename "$skill")" "$(basename "$skill")" "    "
-  done
+  while IFS= read -r skill_file; do
+    local skill="${skill_file%/SKILL.md}"
+    local skill_path_in_repo="${skill#"$REPO_DIR/skills/"}" # e.g. research/notes, shown in the report
+    link_path "$skill" "$skills_dir/$(basename "$skill")" "$skill_path_in_repo" "    "
+  done < <(find "$REPO_DIR/skills" -name SKILL.md -not -path '*/.*' | sort)
 }
 
 echo "CLAUDE"

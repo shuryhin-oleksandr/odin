@@ -36,10 +36,12 @@ unlink_skills() {
   local skills_dir="$1" removed_count=0
   for link in "$skills_dir"/*; do
     [ -L "$link" ] || continue # also skips the literal pattern when the directory is empty or missing
-    case "$(readlink "$link")" in
+    local link_target
+    link_target="$(readlink "$link")"
+    case "$link_target" in
       "$REPO_DIR"/skills/*)
         rm "$link"
-        echo "    ${REMOVED_MARK} $(basename "$link") - removed"
+        echo "    ${REMOVED_MARK} ${link_target#"$REPO_DIR/skills/"} - removed" # e.g. research/notes
         removed_count=$((removed_count + 1))
         ;;
     esac
