@@ -6,4 +6,11 @@ disable-model-invocation: true
 
 Source: $ARGUMENTS
 
-Read source end to end. Create a summary and write to md file. Sections in article should become headers in file. For each header - write main thoughts in bullet points.
+Read source end to end. 
+
+Create a summary and write to md file.
+File name should be: `<name of source>, <author>.md`.
+AskUserQuestion to confirm file name before writing.
+
+Sections in article should become headers in file. 
+For each header - write main thoughts in bullet points.
