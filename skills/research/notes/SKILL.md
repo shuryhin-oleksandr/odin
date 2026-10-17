@@ -5,12 +5,12 @@ description: Summarize a source (article, doc, talk) into a markdown notes file.
 
 <!-- TODO: refine instructions -->
 
-1. Read the full source before writing anything.
-2. Write the summary to a file named `<Article name>, <Author>.md`, using the template below.
-   - If the user named a location, save it there.
-   - Otherwise, propose a folder and wait for the user to approve it before writing. Default proposal:
-     - an existing notes folder in the current project (e.g. `research/notes/`), if there is one;
-     - otherwise `notes/` at the project root.
+1. Read the source end to end before writing anything.
+2. Build the file path: `<folder>/<Name of source>, <Author>.md`.
+   - If the user named a folder, use it.
+   - Otherwise, default to an existing notes folder in the current project (e.g. `research/notes/`), or `notes/` at the project root if there is none.
+3. Call the AskUserQuestion tool to confirm the full file path. Do not write the file until the user answers.
+4. Write the summary to the confirmed path, using the template below.
 
 ## Template
 
