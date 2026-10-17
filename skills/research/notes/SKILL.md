@@ -46,11 +46,15 @@ Source: <URL or path to the original>, published <date>.
 # AI Harness — <Title>, <Author>
 
 ## <Skills | Hooks | Agents | Tools | Rules (CLAUDE.md)>
-- <Concrete thing to build or configure, and what it does>. From §<source section>.
+- <Concrete thing to build or configure, and what it does>.
+  <dl style="margin: 0 0 0.75em 0; opacity: 0.45"><dd>From §<source section>, §<another source section></dd></dl>
+- <Concrete thing to build or configure, and what it does>.
+  <dl style="margin: 0 0 0.75em 0; opacity: 0.45"><dd>From §<source section></dd></dl>
 ```
 
 ## Rules
 - Use one header for each section of the source, in the source's order.
 - Put the main thoughts under each header as short bullet points in your own words.
 - In `Harness.md`, include only the categories that have items, and make each item concrete enough to build.
+- In `Harness.md`, put each item's source on the line right after it, in the `<dl>` line exactly as in the template. Do not leave a blank line between items.
 <!-- TODO: add more rules -->
