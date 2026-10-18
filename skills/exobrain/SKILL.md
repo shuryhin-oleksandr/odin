@@ -8,11 +8,10 @@ description: Search the personal knowledge base in ~/.exobrain and turn what it 
 3. Judge each returned passage against this session's work. Cover work already done too: a practice that was skipped (no plan, no tests, no review) is a finding, not a reason to leave it out. Say what to do now to make up for it.
 4. If the retriever returns no passages, or none apply, say so in one line.
 
-Group recommendations by source, most important first. One bullet per recommendation, one line each:
+Give each recommendation a score from 1 to 10: how much following it would improve this task now (10 = should do it before anything else, 1 = nice to have). Write one flat list sorted by score, highest first. One bullet per recommendation, one line each:
 
 ```
-[<source title>](<URL>)
-- **<1-3 word topic>:** <what to do in this task> — "<shortest quote that backs it>"
+- `<score>` **<1-3 word topic>:** <what to do in this task> — "<shortest quote that backs it>" ([<short source name>](<URL>))
 - ...
 ```
 
