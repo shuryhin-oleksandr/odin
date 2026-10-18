@@ -10,8 +10,9 @@ Scripts can be run from any directory.
 
 - Links odin `CLAUDE.md` into your user-scope `~/.claude/CLAUDE.md` by adding an `@<repo>/CLAUDE.md` import line (skipped if already present).
 - Symlinks each skill into your user-scope `~/.claude/skills/`, so it is available in every project and stays in sync with this repo.
+- Symlinks each agent (`agents/<name>.md`) into `~/.claude/agents/` the same way.
 
-Re-run it after adding new skills.
+Re-run it after adding new skills or agents.
 
 ### Uninstall
 
@@ -21,7 +22,7 @@ Re-run it after adding new skills.
 
 - Removes the `CLAUDE.md` import line, keeping the rest of `~/.claude/CLAUDE.md` intact.
 - Removes broken symlinks in `~/.claude/skills/`.
-- Removes skill symlinks pointing into this repo. Other skills are left untouched.
+- Removes skill and agent symlinks pointing into this repo. Other skills and agents are left untouched.
 
 ### Clean symlinks
 

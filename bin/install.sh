@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Installs odin into user scope: ~/.claude (CLAUDE.md import + skill symlinks) and Codex (~/.codex/AGENTS.md symlink + skill symlinks in ~/.agents/skills).
+# Installs odin into user scope: ~/.claude (CLAUDE.md import + skill and agent symlinks) and Codex (~/.codex/AGENTS.md symlink + skill symlinks in ~/.agents/skills).
 set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -45,6 +45,15 @@ link_skills() {
   done < <(find "$REPO_DIR/skills" -name SKILL.md -not -path '*/.*' | sort)
 }
 
+# Symlinks every repo agent (agents/<name>.md) into the given agents directory.
+link_agents() {
+  local agents_dir="$1"
+  mkdir -p "$agents_dir"
+  while IFS= read -r agent_file; do
+    link_path "$agent_file" "$agents_dir/$(basename "$agent_file")" "$(basename "$agent_file")" "    "
+  done < <(find "$REPO_DIR/agents" -maxdepth 1 -name '*.md' 2>/dev/null | sort)
+}
+
 echo "CLAUDE"
 
 # CLAUDE.md
@@ -64,6 +73,9 @@ fi
 
 echo "  skills ($CLAUDE_DIR/skills):"
 link_skills "$CLAUDE_DIR/skills"
+
+echo "  agents ($CLAUDE_DIR/agents):"
+link_agents "$CLAUDE_DIR/agents"
 
 # Codex has no @import in AGENTS.md, so the whole file is a symlink to the repo CLAUDE.md
 echo

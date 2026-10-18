@@ -26,4 +26,5 @@
 ## Repository layout
 
 - `skills/<name>/` — the skill itself (`SKILL.md` + files it reads at runtime). Symlinked by `install.sh`.
+- `agents/<name>.md` — subagent definitions. Symlinked into `~/.claude/agents/` by `install.sh`.
 - `docs/` — installation and plugin guides.

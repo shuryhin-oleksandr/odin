@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Uninstalls odin from user scope: ~/.claude (CLAUDE.md import + skill symlinks) and Codex (~/.codex/AGENTS.md symlink + skill symlinks in ~/.agents/skills).
+# Uninstalls odin from user scope: ~/.claude (CLAUDE.md import + skill and agent symlinks) and Codex (~/.codex/AGENTS.md symlink + skill symlinks in ~/.agents/skills).
 set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -51,6 +51,24 @@ unlink_skills() {
   fi
 }
 
+# Removes every symlink in the given agents directory that points into this repo, including broken ones.
+unlink_agents() {
+  local agents_dir="$1" removed_count=0
+  for link in "$agents_dir"/*; do
+    [ -L "$link" ] || continue # also skips the literal pattern when the directory is empty or missing
+    case "$(readlink "$link")" in
+      "$REPO_DIR"/agents/*)
+        rm "$link"
+        echo "    ${REMOVED_MARK} $(basename "$link") - removed"
+        removed_count=$((removed_count + 1))
+        ;;
+    esac
+  done
+  if [ "$removed_count" -eq 0 ]; then
+    echo "    no odin agents linked"
+  fi
+}
+
 echo "CLAUDE"
 
 # CLAUDE.md
@@ -66,6 +84,9 @@ fi
 
 echo "  skills ($CLAUDE_DIR/skills):"
 unlink_skills "$CLAUDE_DIR/skills"
+
+echo "  agents ($CLAUDE_DIR/agents):"
+unlink_agents "$CLAUDE_DIR/agents"
 
 echo
 echo "CODEX"
