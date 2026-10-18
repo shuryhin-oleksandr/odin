@@ -12,9 +12,11 @@ Group recommendations by source, most important first. One bullet per recommenda
 
 ```
 [<source title>](<URL>)
-- <what to do in this task> — "<shortest quote that backs it>"
+- **<1-3 word topic>:** <what to do in this task> — "<shortest quote that backs it>"
 - ...
 ```
+
+The bold topic names what the point is about (e.g. **Spec first**, **Tests**, **Small steps**), so the list can be scanned by topic alone.
 
 No intro, no summary, no headings beyond the source links.
 
