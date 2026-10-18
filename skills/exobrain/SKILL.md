@@ -8,14 +8,14 @@ description: Search the personal knowledge base in ~/.exobrain and turn what it 
 3. Judge each returned passage against this session's work. Cover work already done too: a practice that was skipped (no plan, no tests, no review) is a finding, not a reason to leave it out. Say what to do now to make up for it.
 4. If the retriever returns no passages, or none apply, say so in one line.
 
-Write each recommendation as one block, most important first. Copy the source line and quotes from the retriever as they are:
+Group recommendations by source, most important first. One bullet per recommendation, one line each:
 
 ```
-[<source title>](<URL>) — `<note file path>`, <heading>
-> "<quote>"
-> "<up to 3 quotes>"
-
-**Recommendation:** <what to do in this task and why>
+[<source title>](<URL>)
+- <what to do in this task> — "<shortest quote that backs it>"
+- ...
 ```
+
+No intro, no summary, no headings beyond the source links.
 
 Recommend only what the passages support. Don't make code changes; show the recommendations to the user and wait.
